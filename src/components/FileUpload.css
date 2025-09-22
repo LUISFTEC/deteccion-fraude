@@ -1,0 +1,121 @@
+.upload-container {
+  margin-bottom: 1.5rem;
+}
+
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+}
+
+.dropzone:hover {
+  border-color: #007bff;
+  background-color: #f0f7ff;
+}
+
+.dropzone.active {
+  border-color: #007bff;
+  background-color: #e6f2ff;
+}
+
+.dropzone.error {
+  border-color: #dc3545;
+  background-color: #fff5f5;
+}
+
+.file-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.upload-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: #f8f9fa;
+  padding: 0.75rem;
+  border-radius: 8px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.file-icon {
+  font-size: 1.5rem;
+}
+
+.file-name {
+  font-weight: 500;
+  color: #333;
+  flex-grow: 1;
+  text-align: left;
+  margin: 0 0.5rem;
+}
+
+.file-size {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.remove-button {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.remove-button:hover {
+  background: #bd2130;
+}
+
+.dropzone-text {
+  margin: 0;
+  color: #495057;
+}
+
+.dropzone-subtext {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.error-message {
+  color: #dc3545;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0.5rem;
+  background: #f8d7da;
+  border-radius: 4px;
+}

@@ -1,0 +1,109 @@
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  background: #fff;
+  padding: 50px;
+  border-radius: 16px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 500px;
+  max-width: 90%;
+}
+
+.card h1 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Dropzone */
+.dropzone {
+  position: relative;
+  border: 3px dashed #007bff;
+  border-radius: 12px;
+  padding: 40px 20px;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.dropzone.active {
+  background-color: #e6f0ff;
+  border-color: #0056b3;
+}
+
+.file-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+}
+
+.dropzone p {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+}
+
+.plus {
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.loading {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.text-output {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  min-height: 100px;
+  background-color: #f9f9f9;
+  text-align: left;
+  font-size: 0.95rem;
+  color: #555;
+  word-break: break-word;
+}
