@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FileUpload from "./components/FileUpload";
 import "./App.css";
+import Slidebar from "./components/Slidebar";
 
 function App() {
   const [file, setFile] = useState<File | null>(null);
@@ -10,8 +11,8 @@ function App() {
 
   const handleFileSelect = (file: File) => {
     setFile(file);
-    setText(""); 
-    setError(""); 
+    setText("");
+    setError("");
   };
 
   const handleTranscribe = async () => {
@@ -25,7 +26,7 @@ function App() {
     setError("");
 
     const formData = new FormData();
-    formData.append("audio", file); 
+    formData.append("audio", file);
 
     try {
       const response = await fetch("http://localhost:5000/transcribe", {
@@ -38,8 +39,8 @@ function App() {
       }
 
       const data = await response.json();
-      setText(data.transcribed_text); 
-      
+      setText(data.transcribed_text);
+
     } catch (err: unknown) {
       // ✅ Solución: Verificar el tipo de 'err' de forma segura
       if (err instanceof Error) {
@@ -54,20 +55,24 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <div className="card">
-        <h1>Detector de Fraude - Audio a Texto</h1>
+    <div>
+      <Slidebar/>
+       
+      <div className="app-container">
+        <div className="card">
+          <h1>Detector de Fraude - Audio a Texto</h1>
 
-        <FileUpload onFileSelect={handleFileSelect} />
+          <FileUpload onFileSelect={handleFileSelect} />
 
-        <button onClick={handleTranscribe} disabled={!file || loading}>
-          {loading ? "Transcribiendo..." : "Transcribir"}
-        </button>
+          <button onClick={handleTranscribe} disabled={!file || loading}>
+            {loading ? "Transcribiendo..." : "Transcribir"}
+          </button>
 
-        {loading && <div className="loading">Procesando archivo...</div>}
-        {error && <div className="error-message">{error}</div>}
+          {loading && <div className="loading">Procesando archivo...</div>}
+          {error && <div className="error-message">{error}</div>}
 
-        <div className="text-output">{text}</div>
+          <div className="text-output">{text}</div>
+        </div>
       </div>
     </div>
   );
