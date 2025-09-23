@@ -9,6 +9,21 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  // ✅ NUEVA FUNCIÓN para descargar TXT
+  const handleDownload = () => {
+    if (!text) return;
+    
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'transcripcion.txt';  // Nombre del archivo
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   const handleFileSelect = (file: File) => {
     setFile(file);
     setText("");
@@ -42,7 +57,6 @@ function App() {
       setText(data.transcribed_text);
 
     } catch (err: unknown) {
-      // ✅ Solución: Verificar el tipo de 'err' de forma segura
       if (err instanceof Error) {
         setError(`Ocurrió un error: ${err.message}`);
       } else {
@@ -71,8 +85,7 @@ function App() {
           {loading && <div className="loading">Procesando archivo...</div>}
           {error && <div className="error-message">{error}</div>}
 
-          <div className="text-output">{text}</div>
-        </div>
+        <div className="text-output">{text}</div>
       </div>
     </div>
   );
