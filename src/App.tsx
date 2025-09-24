@@ -9,21 +9,6 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // ✅ NUEVA FUNCIÓN para descargar TXT
-  const handleDownload = () => {
-    if (!text) return;
-    
-    const blob = new Blob([text], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'transcripcion.txt';  // Nombre del archivo
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
-
   const handleFileSelect = (file: File) => {
     setFile(file);
     setText("");
@@ -55,7 +40,6 @@ function App() {
 
       const data = await response.json();
       setText(data.transcribed_text);
-
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(`Ocurrió un error: ${err.message}`);
@@ -70,8 +54,8 @@ function App() {
 
   return (
     <div>
-      <Slidebar/>
-       
+      <Slidebar />
+
       <div className="app-container">
         <div className="card">
           <h1>Detector de Fraude - Audio a Texto</h1>
@@ -85,7 +69,8 @@ function App() {
           {loading && <div className="loading">Procesando archivo...</div>}
           {error && <div className="error-message">{error}</div>}
 
-        <div className="text-output">{text}</div>
+          <div className="text-output">{text}</div>
+        </div>
       </div>
     </div>
   );

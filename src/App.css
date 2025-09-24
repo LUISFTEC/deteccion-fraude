@@ -107,17 +107,3 @@ button:hover {
   color: #555;
   word-break: break-word;
 }
-
-.download-btn {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.download-btn:hover {
-  background-color: #218838;
-}

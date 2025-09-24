@@ -9,7 +9,7 @@ type FileUploadProps = {
 
 export default function FileUpload({
   onFileSelect,
-  acceptedTypes = [".mp3", ".wav", ".ogg"],
+  acceptedTypes = [".mp3"],
   maxSize = 10,
 }: FileUploadProps) {
   const [file, setFile] = useState<File | null>(null);
@@ -131,13 +131,12 @@ export default function FileUpload({
               </p>
             </>
           ) : (
-            <>
-              <span className="upload-icon">📤</span>
+            <>  
               <p className="dropzone-text">
-                Arrastra tu archivo de audio aquí o haz click para seleccionar
+                Arrastra tu archivo
               </p>
               <p className="dropzone-subtext">
-                Formatos aceptados: {acceptedTypes.join(", ")} (Máx. {maxSize}
+                Formatos: {acceptedTypes.join(", ")} (Máx. {maxSize}
                 MB)
               </p>
             </>
